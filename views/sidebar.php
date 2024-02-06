@@ -4,9 +4,7 @@
 <div class="transition_speed" id="left_side">
       <div class="transition_speed" id="nav_con">
         <nav
-          class="navbar navbar-expand-lg navbar-dark my-round"
-          style="background-color: #202224"
-        >
+          class="navbar navbar-expand-lg navbar-dark my-round" style="background-color: #202224">
           <div class="container-fluid" style="background-color: transparent">
             <a class="navbar-brand" href="#">Navbar</a>
             <button
@@ -21,12 +19,23 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <form class="d-flex ms-auto" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-light" type="submit">
+                  Search
+                </button>
+              </form>
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a
                     class="nav-link active"
                     aria-current="page"
-                    href="#"
+                    href="/"
                     data="Home"
                     >Home</a
                   >
@@ -56,26 +65,13 @@
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link disabled"
-                    aria-disabled="true"
-                    data="Disabled"
-                    >Disabled</a
-                  >
+                <li class="nav-item logged-out d-none">
+                  <a class="nav-link" href="/login" data="Link">Login</a>
+                </li>
+                <li class="nav-item logged-in d-none">
+                  <a class="nav-link" href="" id="logout" data="Link">Logout</a>
                 </li>
               </ul>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
             </div>
           </div>
         </nav>
@@ -83,3 +79,45 @@
       <span class="fs-1 transition_speed btn_nav_toggle" id="btn_nav_toggle">
         <i class="fa-solid fa-chevron-right"></i>
       </span>
+
+
+
+      <!-- loader code -->
+      <div class="loader-container">
+        
+        <div class="gearbox">
+          <div class="overlay"></div>
+            <div class="gear one">
+              <div class="gear-inner">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="gear two">
+              <div class="gear-inner">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="gear three">
+              <div class="gear-inner">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="gear four large">
+              <div class="gear-inner">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+          </div>
+
+      </div>

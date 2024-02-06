@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Skil Nexus | Signup</title>
     <link
@@ -106,7 +109,7 @@
               Already have an account?
               <a class="link" href="/login.html">Login now!</a>
             </p>
-            <a href="#" class="button">
+            <a href="#" class="button" id="btn_reg">
               <span></span>
               <span></span>
               <span></span>
@@ -125,38 +128,10 @@
     ></script>
     <script src="../script/jquery-3.7.1.min.js"></script>
     <script src="../script/script.js"></script>
+    <script src="../script/auth.js"></script>
     <script>
       $(document).ready(function () {
-       
-
-        $(".button").click(function (e) {
-          e.preventDefault();
-          var data = $("#sign_form").serializeArray(); //get all field
-          const obj = toObj(data); //conver array to obj
-          $("#sign_form small").text(""); //clear all error
-          if (obj.password !== obj.confirm_password) {
-            $(".confirm_password small").text("Password doesn't match");
-          } else {
-            $.ajax({
-              type: "POST",
-              url: "http://127.0.0.1:8000/api/signup",
-              data: data,
-              // dataType: "application/json",
-              success: function (response) {
-                console.log(response);
-                showToast("Sign Up Succesfull. Login Now", "info");
-              },
-              error: function (e) {
-                const data = e.responseJSON;
-                if ($.isPlainObject(data)) {
-                  $.each(data, function (field, errors) {
-                    $(`.${field} small`).text(errors.join(", "));
-                  });
-                }
-              },
-            });
-          }
-        });
+        on_page_load();
       });
     </script>
   </body>

@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
     <link
@@ -56,7 +59,7 @@
             <div class="message">
               <small class="text-danger"></small>
             </div>
-            <a href="#" class="button">
+            <a href="#" class="button" id="btn_login">
               <span></span>
               <span></span>
               <span></span>
@@ -75,39 +78,10 @@
     ></script>
     <script src="../script/jquery-3.7.1.min.js"></script>
     <script src="../script/script.js"></script>
+    <script src="../script/auth.js"></script>
     <script>
       $(document).ready(function () {
-        
-        // on click login
-        $(".button").click(function (e) {
-          e.preventDefault();
-          var data = $("#login_form").serializeArray(); //get all field
-          const obj = toObj(data); //conver array to obj
-          $("#login_form small").text(""); //clear all error
-
-          $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:8000/api/login",
-            data: data,
-            // dataType: "application/json",
-            success: function (response) {
-              console.log(response);
-              showToast(response.message, "info");
-              localStorage.setItem("token", response.access_token);
-              location.replace("/");
-            },
-            error: function (e) {
-              const data = e.responseJSON;
-              if ($.isPlainObject(data) && !data.message) {
-                $.each(data, function (field, errors) {
-                  $(`.${field} small`).text(errors.join(", "));
-                });
-              } else {
-                $(`.message small`).text(data.message);
-              }
-            },
-          });
-        });
+        on_page_load();
       });
     </script>
   </body>
