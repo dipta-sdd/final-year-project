@@ -21,6 +21,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"
+    />
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../style/profile.css" />
   </head>
@@ -51,6 +55,86 @@
               <div class="profile-pic">
                 <!-- if no profile picture then it will be shown -->
                 <i class="fa-regular fa-user fa-2xl"></i>
+                <button
+                  type="button"
+                  class="btn btn-primary edit-pic-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  <i class="fa-solid fa-pen fa-lg" style="color: #ffffff"></i>
+                </button>
+                <!-- modal -->
+                <!-- modal -->
+                <!-- modal -->
+                <!-- Modal -->
+                <!-- Modal for profile pic change -->
+                <div
+                  class="modal fade"
+                  id="staticBackdrop"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                          Change Profile Picture
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- preview img -->
+                        <img
+                          id="imagePreview"
+                          src="#"
+                          alt="Image Preview"
+                          style="max-width: 200px; display: none"
+                        />
+                        <!-- preview img -->
+                        <div class="input-group mb-3">
+                          <input
+                            type="file"
+                            class="form-control"
+                            id="imageUpload"
+                            accept="image/*"
+                          />
+                          <input
+                            type="hidden"
+                            id="croppedImageData"
+                            name="croppedImage"
+                          />
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          id="saveCropedPic"
+                        >
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- modal -->
+                <!-- modal -->
+                <!-- modal -->
               </div>
 
               <div class="ps-3 profile-details">
@@ -59,6 +143,7 @@
                   <i class="username"></i>
                 </div>
               </div>
+
               <div class="ms-auto">
                 <button
                   type="button"
@@ -68,8 +153,6 @@
                 </button>
               </div>
             </div>
-
-            <div class=""></div>
           </div>
 
           <div class="row my-color mybg my-row">
@@ -102,7 +185,6 @@
           <!-- main body-->
           <!-- main body-->
           <!-- main body-->
-        
       </div>
     </div>
     </div>
@@ -113,6 +195,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="../script/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+
     <script src="../script/script.js"></script>
     <script src="../script/profile.js"></script>
     <script>

@@ -8,9 +8,10 @@
     height: 200px;
     width: 200px;
     min-width: 200px;
+    position: relative;
 }
 
-.profile-pic i{
+.profile-pic .fa-user{
     transform: scale(5);
     transform-origin: -6px -20px;
 }
@@ -26,4 +27,19 @@
 .profile-hr{
     margin: 10px 0px;
     /* margin-right: -30px; */
+}
+
+/* change profile btn */
+.profile-pic .edit-pic-btn{
+    position:absolute;
+    bottom: 0;
+    right: 0;
+}
+.pre-img-div{
+    position: fixed;
+    left: 0;
+    z-index: 5000;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
 }

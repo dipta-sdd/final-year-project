@@ -3,7 +3,7 @@ let user = get_user();
 //   location.replace("/login");
 // }
 console.log(user);
-$(".profile-pic i").addClass("d-none");
+$(".profile-pic .fa-user").addClass("d-none");
 $(".profile-pic").append(
   `<img src="${apiLink + user.profile_picture}" alt=""/>`
 );
@@ -162,4 +162,87 @@ function showPersonalDetails(user) {
       </div>
     </div>
   `);
+}
+
+// profile pic chosing
+const imageInput = document.getElementById("imageUpload");
+const imagePreview = document.getElementById("imagePreview");
+let cropper;
+
+imageInput.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+      imagePreview.src = this.result;
+      imagePreview.style.display = "block";
+
+      // Create Cropper Container dynamically
+      const cropperContainer = document.createElement("div");
+      cropperContainer.style.maxWidth = imagePreview.width + "px";
+      imagePreview.parentNode.insertBefore(
+        cropperContainer,
+        imagePreview.nextSibling
+      );
+
+      // Initialize Cropper.js
+      const image = imagePreview;
+      cropper = new Cropper(image, {
+        aspectRatio: 1,
+        viewMode: 1,
+        autoCropArea: 0.8,
+      });
+    });
+
+    reader.readAsDataURL(file);
+  }
+});
+
+// Example - Getting cropped image data for further actions
+function getCroppedImage() {
+  if (cropper) {
+    const croppedCanvas = cropper.getCroppedCanvas();
+    const croppedImageFile = dataURItoBlob(
+      croppedCanvas.toDataURL("image/jpeg")
+    );
+    console.log(croppedImageFile);
+    const formData = new FormData();
+    formData.append(
+      "profile_picture",
+      croppedImageFile,
+      user.username + ".jpg"
+    );
+    $.ajax({
+      type: "POST",
+      url: apiLink + "/api/edit_profile",
+      data: formData,
+      // data: JSON.stringify({ profile_picture: croppedImageFile }),
+      processData: false,
+      contentType: false,
+      headers: {
+        Authorization: "Bearer " + getCookie("token"),
+      },
+      success: function (res) {
+        console.log(res);
+      },
+      // enctype: "multipart/form-data",
+    });
+  }
+}
+$(saveCropedPic).click(function (e) {
+  e.preventDefault();
+  getCroppedImage();
+});
+// Helper function to convert data URI to a Blob (which can be treated as a file)
+function dataURItoBlob(dataURI) {
+  const byteString = atob(dataURI.split(",")[1]);
+  const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+  const ab = new ArrayBuffer(byteString.length);
+  const ia = new Uint8Array(ab);
+  for (let i = 0; i < byteString.length; i++) {
+    ia[i] = byteString.charCodeAt(i);
+  }
+  return new Blob([ab], { type: mimeString });
 }

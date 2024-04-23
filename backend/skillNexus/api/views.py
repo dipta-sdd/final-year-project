@@ -61,6 +61,11 @@ def editProfile(request):
     print("________________________edit_profile_______________________")
     user = request.user
     print(user)
+    # if 'profile_picture' in request.FILES:
+    #     print('file is here')
+    #     print(request.FILES['profile_picture'].name)
+    # else:
+    #     print('ghjghjghghjghjghjg')
     serializer = editUserSerializer(
         user, data=request.data, partial=True)  # For partial updates
     if serializer.is_valid():
