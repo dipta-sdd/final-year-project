@@ -6,7 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Skil Nexus | Signup</title>
+    <title>SkilNexus | Signup</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -34,6 +34,12 @@
 
 
       <div class="my-round" id="body">
+        <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page">Register</li>
+          </ol>
+        </nav>
         <div class="login-box">
           <h2>Registration</h2>
           <form id="sign_form">
@@ -107,7 +113,7 @@
 
             <p style="color: white">
               Already have an account?
-              <a class="link" href="/login.html">Login now!</a>
+              <a class="link" href="/login">Login now!</a>
             </p>
             <a href="#" class="button" id="btn_reg">
               <span></span>
@@ -119,6 +125,7 @@
           </form>
         </div>
       </div>
+    </div>
     </div>
 
     <script

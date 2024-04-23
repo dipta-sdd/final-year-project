@@ -6,7 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>SkilNexus</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -31,8 +31,14 @@
     </div>
 
     <?php include 'sidebar.php' ?>
-
-      <div class="my-round" id="body">
+ 
+      <div class="my-round" id="body"  data-bs-theme="light">
+        <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page">Login</li>
+          </ol>
+        </nav>
         <div class="login-box">
           <h2>Login</h2>
           <form id="login_form">
@@ -59,6 +65,11 @@
             <div class="message">
               <small class="text-danger"></small>
             </div>
+
+            <p style="color: white">
+              Don't have an account?
+              <a class="link" href="/signup">Sign-up now!</a>
+            </p>
             <a href="#" class="button" id="btn_login">
               <span></span>
               <span></span>
@@ -70,6 +81,7 @@
         </div>
       </div>
     </div>
+</div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -81,6 +93,7 @@
     <script src="../script/auth.js"></script>
     <script>
       $(document).ready(function () {
+        // Sidebar();
         on_page_load();
       });
     </script>

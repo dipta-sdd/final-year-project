@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,12 +45,21 @@ INSTALLED_APPS = [
     'api',
     'data',
 ]
+# for generating erd
+GRAPH_MODELS = {
+    'all_applications': True,
+    'graph_models': True,
+}
 
 AUTH_USER_MODEL = 'data.User'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=3),
 }
 
 
@@ -96,42 +105,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-
-# CORS_ALLOW_ALL_ORIGINS = True
-
-# CORS_ORIGIN_WHITELIST = [
-#     'http://localhost:5500',  # for localhost (REACT Default)
-#     'http://127.0.0.1:5500',  # for network
-#     'http://localhost:8080',  # for localhost (Developlemt)
-#     'http://127.0.0.1:8080',  # for network (Development)
-# ]
-
-# CSRF_TRUSTED_ORIGINS = [
-#     'http://localhost:5500',  # for localhost (REACT Default)
-#     'http://127.0.0.1:5500',  # for network
-#     'http://localhost:8080',  # for localhost (Developlemt)
-#     'http://127.0.0.1:8080',  # for network (Development)
-# ]
-# CORS_ALLOWED_ORIGIN = [
-#     'http://localhost:5500',
-#     'http://127.0.0.1:5500',
-#     'http://localhost:8080',  # for localhost (Developlemt)
-#     'http://127.0.0.1:8080',  # for network (Development)
-# ]
-# CORS_ALLOW_HEADERS = [
-#     'accept',
-#     'accept-encoding',
-#     'authorization',
-#     'content-type',
-#     'dnt',
-#     'origin',
-#     'user-agent',
-#     'x-csrftoken',
-#     'x-requested-with',
-# ]
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {

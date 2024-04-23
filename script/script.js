@@ -1,3 +1,4 @@
+const apiLink = "http://127.0.0.1:8000";
 // covert form data to js object
 function toObj(arr) {
   var obj = {};
@@ -32,16 +33,6 @@ function showToast(msg, bgc) {
   }, 3000);
 }
 
-// side bar toggle button
-$(btn_nav_toggle).click(function (e) {
-  e.preventDefault();
-  console.log("clicked");
-  $(btn_nav_toggle).toggleClass("btn_nav_toggle_active");
-  $(left_side).toggleClass("sidebar-active-con");
-  $(nav_con).toggleClass("sidebar-active-nav");
-  $(sidebar).toggleClass("sidebar-active");
-});
-
 // Function to create a cookie
 function createCookie(name, value, days) {
   let expires = "";
@@ -72,20 +63,36 @@ function deleteCookie(name) {
 
 // get current user from cookie and save it to local storage
 function on_page_load() {
+  // change theme to light default
+  // $("body").addClass("theme-light");
+  let current_theme = localStorage.getItem("theme");
+  if (current_theme == "dark") {
+    goDark();
+    $("#theme").prop("checked", true);
+  } else {
+    goLight();
+  }
   $.ajax({
     type: "GET",
-    url: "./api/current_user",
+    url: apiLink + "/api/current_user",
     headers: {
       Authorization: "Bearer " + getCookie("token"),
     },
   })
-    .then(function (response) {
-      localStorage.setItem("user", JSON.stringify(response));
+    .then(function (user) {
+      localStorage.setItem("user", JSON.stringify(user));
       $(".logged-in").removeClass("d-none");
+      if (user.profile_picture) {
+        $("#nav_con .profile-con .icon").addClass("d-none");
+        $("#nav_con .profile-con").append(`
+          <img src="${apiLink + user.profile_picture}" alt="">
+        `);
+      }
 
       hide_loader();
     })
     .catch(function (error) {
+      console.log(error);
       localStorage.removeItem("user");
       $(".logged-out").removeClass("d-none");
       hide_loader();
@@ -98,14 +105,62 @@ function get_user() {
 }
 
 // on click logout
-$(logout).click(function (e) {
+$(".logout").click(function (e) {
   e.preventDefault();
   deleteCookie("token");
   localStorage.removeItem("user");
-  setTimeout(location.reload(), 2000);
+  location.reload();
 });
 
 // hide loader
 function hide_loader() {
   $(".loader-container").addClass("d-none");
 }
+
+//profile pic click
+$(".profile-con").click(function (e) {
+  e.preventDefault();
+  $(".profile-con .dropdown-menu").toggleClass("show");
+});
+// drop down item click
+$(".dropdown-item").click(function (e) {
+  e.preventDefault();
+  let link = $(this).attr("href");
+  location.replace(link);
+});
+
+// change theme to dark
+function goDark() {
+  $("#body").attr("data-bs-theme", "dark");
+  $("body").css("--bg", "#293037");
+  $("body").css("--bg2", "#ffffff0e");
+  $("body").css("--color", "#ffffff");
+  $("body").addClass("theme-dark");
+  $("body").removeClass("theme-light");
+  $(".navbar-btn").addClass("btn-outline-light");
+  $(".navbar-btn").removeClass("btn-outline-dark");
+}
+// change theme to light
+function goLight() {
+  $("#body").attr("data-bs-theme", "light");
+  $("body").css("--bg", "#ffffff");
+  $("body").css("--bg2", "#ffffff69");
+  $("body").css("--color", "#000000");
+  $("body").addClass("theme-light");
+  $("body").removeClass("theme-dark");
+  $(".navbar-btn").addClass("btn-outline-dark");
+  $(".navbar-btn").removeClass("btn-outline-light");
+}
+
+// change the on click
+$("#theme").change(function (e) {
+  // e.preventDefault();
+  if ($(this).prop("checked")) {
+    goDark();
+    localStorage.setItem("theme", "dark");
+  } else {
+    goLight();
+    localStorage.setItem("theme", "light");
+  }
+  // console.log($(this).prop("checked"));
+});

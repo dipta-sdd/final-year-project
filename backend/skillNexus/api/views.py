@@ -5,7 +5,7 @@ from rest_framework import status
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
 from data.models import User
-from data.serializers import UserSerializer, LoginSerializer, CurrentUserSerializer
+from data.serializers import UserSerializer, LoginSerializer, editUserSerializer
 from django.contrib.auth.hashers import check_password
 from rest_framework_simplejwt.tokens import RefreshToken
 
@@ -54,3 +54,17 @@ def login_view(request):
             else:
                 return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def editProfile(request):
+    print("________________________edit_profile_______________________")
+    user = request.user
+    print(user)
+    serializer = editUserSerializer(
+        user, data=request.data, partial=True)  # For partial updates
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

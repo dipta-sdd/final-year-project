@@ -17,6 +17,9 @@ switch ($requests[0]) {
     case 'signup' :
         require __DIR__ . '/views/reg.php';
         break;
+    case 'profile' :
+        require __DIR__ . '/views/profile.php';
+        break;
     
     default:
             http_response_code(404);

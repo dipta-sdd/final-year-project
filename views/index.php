@@ -7,7 +7,7 @@
     <meta http-equiv="Expires" content="0">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>SkilNexus</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,6 +22,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/breadcrumb.css" />
   </head>
   <body>
     <div aria-live="polite" aria-atomic="true" class="position-relative">
@@ -32,9 +33,22 @@
 
     <?php include 'sidebar.php' ?>
   
-      <div class="my-round" id="body">
+      <div class="my-round " id="body" data-bs-theme="light">
+        <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item text-primary"><a href="/">Home</a></li>
+            <!-- <li class="breadcrumb-item" aria-current="page">Login</li> -->
+          </ol>
+        </nav>
         
+        
+
+
+
+
+
       </div>
+    </div>
     </div>
 
     <script

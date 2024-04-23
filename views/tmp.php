@@ -7,7 +7,7 @@
     <meta http-equiv="Expires" content="0">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>SkilNexus</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,11 +29,32 @@
         <!-- Then put toasts within -->
       </div>
     </div>
-
     <?php include 'sidebar.php' ?>
   
-      <div class="my-round" id="body">
-        
+        <div class="my-round" id="body">
+          <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item" aria-current="page">Login</li>
+            </ol>
+          </nav>
+
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <div class="row text-light mybg my-row"></div>
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+          <!-- main body-->
+        </div>
       </div>
     </div>
 
@@ -46,8 +67,10 @@
     <script src="../script/script.js"></script>
     <script>
       $(document).ready(function () {
+        Sidebar();
         on_page_load();
       });
     </script>
   </body>
 </html>
+ 

@@ -5,14 +5,17 @@ from django.db import models
 
 class User(AbstractUser):
     bio = models.TextField(blank=True)
-    location = models.CharField(max_length=255, blank=True, null=True)
+    mobile = models.TextField(blank=True)
+    country = models.CharField(max_length=255, blank=True, null=True)
     profile_picture = models.ImageField(
         upload_to='profile_pictures/', blank=True)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0)
     role = models.CharField(max_length=50, choices=[
-        ('regular_user', 'Regular User'),
-        ('employer', 'Employer'),
-        ('university', 'University')
+        ('Employer', 'Employer'),
+        ('Student', 'Student'),
+        ('Freelancer', 'Freelancer'),
+        ('Educator', 'Educator'),
+        ('University', 'University')
     ])
     last_login = models.DateTimeField(null=True, blank=True)
 

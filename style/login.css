@@ -87,7 +87,8 @@
   transition: .5s;
   margin-top: 40px;
   margin-left: 100px;
-  letter-spacing: 4px
+  letter-spacing: 4px;
+  cursor: pointer;
 }
 
 .login-box .button:hover {
@@ -253,9 +254,4 @@
   transform: scale(1.2);
   border-color: #4c8bf5;
   box-shadow: 0 0 20px #4c8bf580;
-}
-
-#btn_login {
-  cursor: pointer;
-  font-style: italic;
 }

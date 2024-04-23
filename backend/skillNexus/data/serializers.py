@@ -6,33 +6,21 @@ from .models import User
 class CurrentUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'bio',
-                  'location', 'profile_picture', 'rating', 'role', 'last_login']
+        fields = '__all__'
+        # ['id', 'username', 'email', 'first_name', 'last_name', 'bio',
+        #   'location', 'profile_picture', 'rating', 'role', 'last_login']
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = [
-            'id',
-            'username',
-            'password',
-            'email',
-            'first_name',
-            'last_name',
-            'bio',
-            'location',
-            'profile_picture',
-            'rating',
-            'role',
-            # Add any other fields you want to include in the serializer
-        ]
+        fields = '__all__'
         read_only_fields = ['id']
 
     class Meta:
         model = User
         fields = ['id', 'username', 'password', 'email', 'first_name',
-                  'last_name', 'bio', 'location', 'profile_picture', 'rating', 'role']
+                  'last_name', 'bio', 'mobile', 'country', 'profile_picture', 'rating', 'role']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -56,19 +44,8 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField(style={'input_type': 'password'})
 
 
-# from rest_framework import serializers
-
-# from .models import User
-
-
-# class UserSerializer (serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = [
-#             'id',
-#             'name',
-#             'first_name',
-#             'last_name',
-#             'username',
-#             'email',
-#         ]
+class editUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('bio', 'country', 'profile_picture', 'mobile',
+                  'first_name', 'last_name', 'email')

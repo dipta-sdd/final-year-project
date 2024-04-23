@@ -1,0 +1,29 @@
+.profile-pic{
+    display: inline-block;
+    padding: 2px;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: #dbdbdb;
+    overflow: hidden;
+    height: 200px;
+    width: 200px;
+    min-width: 200px;
+}
+
+.profile-pic i{
+    transform: scale(5);
+    transform-origin: -6px -20px;
+}
+.profile-pic img{
+    width: 200px;
+    height: auto;
+}
+.profile-details{
+}
+.name{
+    font-size: 1.5rem;
+}
+.profile-hr{
+    margin: 10px 0px;
+    /* margin-right: -30px; */
+}

@@ -1,10 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SkilNexus</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/breadcrumb.css" />
+  </head>
+  <body>
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+      <div class="toast-container top-0 end-0 p-3">
+        <!-- Then put toasts within -->
+      </div>
+    </div>
 
     <div class="transition_speed m-0 p-0" id="left_side">
-      <div class="" id="nav_con">
-        <div class="container fix-extra-margin">
-          <nav class="navbar navbar-expand-lg navbar-dark mybg my-round ms-0">
+      <div class="p-0 m-0" id="nav_con">
+        <div class="container fix-extra-margin" data-bs-theme="light">
+          <nav class="navbar navbar-expand-lg navbar-dar mybg my-round ms-0">
             <div class="container-fluid" style="background-color: transparent">
-              <a class="navbar-brand my-color" href="#">Navbar</a>
+              <a class="navbar-brand text-light" href="#">Navbar</a>
               <button
                 class="navbar-toggler"
                 type="button"
@@ -24,28 +59,15 @@
                     placeholder="Search"
                     aria-label="Search"
                   />
-                  <button class="btn navbar-btn btn-outline-dark" type="submit">
+                  <button class="btn btn-outline-dark" type="submit">
                     Search
                   </button>
                 </form>
-                <!-- theme switch -->
-                <!-- theme switch -->
-                <!-- theme switch -->
-                <!-- theme switch -->
-                <label class="switch">
-                  <input type="checkbox" id="theme" />
-                  <span class="slider"></span>
-                </label>
-                <!-- theme switch -->
-                <!-- theme switch -->
-                <!-- theme switch -->
-                <!-- theme switch -->
-                <!-- theme switch -->
-                <ul class="navbar-nav ms-1 mb-2 mb-lg-0">
+                <ul class="navbar-nav mb-2 mb-lg-0">
                   <li class="nav-item logged-out d-none">
                     <a class="nav-link" href="/login" data="Link">Login</a>
                   </li>
-                  <div class="profile-con ms-1 logged-in d-none">
+                  <div class="profile-con logged-in d-none">
                     <div class="icon">
                       <i
                         class="fa-solid fa-user fa-xl"
@@ -175,8 +197,8 @@
           </svg>
         </div>
       </div>
-<!-- side bar -->
-      <div class="container"  data-bs-theme="dark">
+      <!-- side bar -->
+      <div class="container" data-bs-theme="dark">
         <div id="sidebar" class="h-100 transition_speed">
           <ul class="list-unstyled components mb-5">
             <li>
@@ -211,3 +233,29 @@
             </li>
           </ul>
         </div>
+
+        <div class="my-round" id="body">
+          <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <!-- <li class="breadcrumb-item" aria-current="page">Login</li> -->
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../script/jquery-3.7.1.min.js"></script>
+    <script src="../script/script.js"></script>
+    <script>
+      $(document).ready(function () {
+        on_page_load();
+      });
+    </script>
+  </body>
+</html>

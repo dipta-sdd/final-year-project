@@ -30,7 +30,7 @@ $("#btn_reg").click(function (e) {
 // on click login
 $("#btn_login").click(function (e) {
   e.preventDefault();
-  var data = $("#login_form").serializeArray(); //get all field
+  var data = $("#login_form").serializeArray(); //get all field of the login form
   const obj = toObj(data); //conver array to obj
   $("#login_form small").text(""); //clear all error
 
@@ -40,9 +40,8 @@ $("#btn_login").click(function (e) {
     data: data,
     // dataType: "application/json",
     success: function (response) {
-      console.log(response);
+      // console.log(response);
       showToast(response.message, "info");
-      localStorage.setItem("token", response.access_token);
       createCookie("token", response.access_token, 3);
       location.replace("/");
     },
