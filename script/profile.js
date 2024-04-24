@@ -8,7 +8,8 @@ $(".profile-pic").append(
   `<img src="${apiLink + user.profile_picture}" alt=""/>`
 );
 $(".name").text(user.first_name + " " + user.last_name);
-$(".username").text(user.username);
+$(".username").text("(" + user.username + ")");
+$(".role").text(user.role);
 showPersonalDetails(user);
 // click on save on personal details
 $(".btn-edit-p").click(function (e) {
@@ -225,9 +226,16 @@ function getCroppedImage() {
         Authorization: "Bearer " + getCookie("token"),
       },
       success: function (res) {
+        console.log("upload successfull");
+        // showimg notification of success
+        showToast("Profile uploaded successfully.");
+        $(".profile-pic img").attr("src", apiLink + res.profile_picture);
+        $("#nav_con .profile-con img").attr(
+          "src",
+          apiLink + res.profile_picture
+        );
         console.log(res);
       },
-      // enctype: "multipart/form-data",
     });
   }
 }

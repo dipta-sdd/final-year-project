@@ -59,7 +59,7 @@
                   type="button"
                   class="btn btn-primary edit-pic-btn"
                   data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
+                  data-bs-target="#profilePicChangeModal"
                 >
                   <i class="fa-solid fa-pen fa-lg" style="color: #ffffff"></i>
                 </button>
@@ -70,17 +70,17 @@
                 <!-- Modal for profile pic change -->
                 <div
                   class="modal fade"
-                  id="staticBackdrop"
+                  id="profilePicChangeModal"
                   data-bs-backdrop="static"
                   data-bs-keyboard="false"
                   tabindex="-1"
-                  aria-labelledby="staticBackdropLabel"
+                  aria-labelledby="profilePicChangeModalLabel"
                   aria-hidden="true"
                 >
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        <h1 class="modal-title fs-5" id="profilePicChangeModalLabel">
                           Change Profile Picture
                         </h1>
                         <button
@@ -141,6 +141,7 @@
                 <div class="row">
                   <b class="name"></b>
                   <i class="username"></i>
+                  <p class="role align-bottom"></p>
                 </div>
               </div>
 

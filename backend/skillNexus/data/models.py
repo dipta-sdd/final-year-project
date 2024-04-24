@@ -15,7 +15,8 @@ class User(AbstractUser):
         ('Student', 'Student'),
         ('Freelancer', 'Freelancer'),
         ('Educator', 'Educator'),
-        ('University', 'University')
+        ('University', 'University'),
+        ('Admin', 'Admin')
     ])
     last_login = models.DateTimeField(null=True, blank=True)
 
