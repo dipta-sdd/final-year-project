@@ -39,12 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework_swagger',
     'rest_framework',
+    # 'drf-yasg',
+
     'rest_framework_simplejwt',
     'corsheaders',
     'api',
     'data',
 ]
+
 # for generating erd
 GRAPH_MODELS = {
     'all_applications': True,

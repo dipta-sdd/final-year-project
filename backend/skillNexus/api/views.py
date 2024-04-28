@@ -8,6 +8,7 @@ from data.models import User
 from data.serializers import UserSerializer, LoginSerializer, editUserSerializer
 from django.contrib.auth.hashers import check_password
 from rest_framework_simplejwt.tokens import RefreshToken
+from drf_yasg.utils import swagger_auto_schema
 
 
 @api_view(['GET'])
@@ -20,6 +21,7 @@ def current_user(request):
 
 
 @api_view(['POST'])
+@swagger_auto_schema(query_serializer=UserSerializer)
 def signup(request):
     if request.method == 'POST':
         serializer = UserSerializer(data=request.data)
