@@ -5,7 +5,8 @@ cd skillNexus
 django-admin startproject backend .
 python manage.py runserver
 
-
+C:\xampp\htdocs\backend\env\Lib\site-packages\rest_framework_swagger\templates\swagger_ui.html
+C:\xampp\htdocs\backend\env\Lib\site-packages\rest_framework_swagger\templates\swagger-ui.html
 
 for erd
 pip install graphviz

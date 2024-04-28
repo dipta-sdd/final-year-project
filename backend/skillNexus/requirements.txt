@@ -8,5 +8,3 @@ Pillow
 django-rest-swagger
 drf-yasg
 drf-spectacular
-C:\xampp\htdocs\backend\env\Lib\site-packages\rest_framework_swagger\templates\swagger_ui.html
-C:\xampp\htdocs\backend\env\Lib\site-packages\rest_framework_swagger\templates\swagger-ui.html
