@@ -27,7 +27,7 @@ DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework_swagger',
     'rest_framework',
-    # 'drf-yasg',
-
     'rest_framework_simplejwt',
     'corsheaders',
     'api',
@@ -66,6 +64,25 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=3),
 }
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            # ADD YOUR DIRECTORY HERE LIKE SO:
+            os.path.join(BASE_DIR, 'templates/')
+            BASE_DIR + '/templates/',
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

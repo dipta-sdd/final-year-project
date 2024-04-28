@@ -70,6 +70,7 @@ body {
 #sidebar{
 width: var(--side-width-pos);
 height: 100vh;
+top: 72px;
 position: fixed;
 background-color: var(--bg);
 /* background-image: linear-gradient(#57606f, #2f3542); */
@@ -321,4 +322,42 @@ input:checked+.slider {
 input:checked+.slider:before {
     transform: translateX(100%);
     box-shadow: inset 15px -4px 0px 15px #fff000;
+}
+
+
+.sidebar_btn{
+    display: none;
+}
+@media only screen and (max-width: 991px) {
+    .switch {
+            margin-top: 10px;
+        }
+    .sidebar_btn{
+        display: block;
+    }
+    #sidebar{
+        display: none;
+        top:0;
+        transition: .5s;
+    }
+    .sidebar_open{
+        display: block !important;
+        left: 0;
+        box-shadow: var(--color) 0.01px 0.95px 2.6px;
+    }
+    #body{
+        margin-left: auto;
+    }
+    #nav_con .navbar-brand{
+        margin-left: 10px;
+    }
+    .sidebar_btn i{
+        position: absolute;
+        z-index: 6000;
+        top: 37px;
+        left: 2px;
+        color: var(--color);
+        opacity: 0.5;
+    };
+    
 }

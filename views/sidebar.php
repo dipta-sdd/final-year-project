@@ -14,7 +14,7 @@
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon my-color"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="d-flex ms-auto me-5" role="search">
@@ -210,4 +210,7 @@
               >
             </li>
           </ul>
+        </div>
+        <div class="sidebar_btn">
+          <i class="fa-solid fa-chevron-up fa-rotate-90 fa-2xl"></i>
         </div>

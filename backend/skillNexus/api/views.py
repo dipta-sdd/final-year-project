@@ -9,8 +9,15 @@ from data.serializers import UserSerializer, LoginSerializer, editUserSerializer
 from django.contrib.auth.hashers import check_password
 from rest_framework_simplejwt.tokens import RefreshToken
 from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
+@swagger_auto_schema(
+    methods=['get'],
+    operation_summary="Get Current User",
+    # request_body=editUserSerializer,
+    security=[{"Bearer": []}]
+)
 @api_view(['GET'])
 def current_user(request):
     if isinstance(request.user, User):
@@ -20,8 +27,23 @@ def current_user(request):
         return Response({"detail": "Authentication credentials were not provided."}, status=401)
 
 
+@swagger_auto_schema(
+    methods=['post'],
+    operation_summary="Create User",
+    # operation_description="Create a new user account.",
+    request_body=UserSerializer,
+    # request_body=openapi.Schema(
+    #     type=openapi.TYPE_OBJECT,
+    #     required=['username', 'email', 'password'],
+    #     properties={
+    #         'username': openapi.Schema(type=openapi.TYPE_STRING),
+    #         'email': openapi.Schema(type=openapi.TYPE_STRING),
+    #         'password': openapi.Schema(type=openapi.TYPE_STRING)
+    #     }
+    # ),
+    # security=[{"Bearer": []}]
+)
 @api_view(['POST'])
-@swagger_auto_schema(query_serializer=UserSerializer)
 def signup(request):
     if request.method == 'POST':
         serializer = UserSerializer(data=request.data)
@@ -33,6 +55,12 @@ def signup(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+@swagger_auto_schema(
+    methods=['post'],
+    operation_summary="Login",
+    request_body=LoginSerializer,
+    # security=[{"Bearer": []}]
+)
 @api_view(['POST'])
 @permission_classes([])
 def login_view(request):
@@ -58,16 +86,17 @@ def login_view(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+@swagger_auto_schema(
+    methods=['post'],
+    operation_summary="Edit Profile",
+    request_body=editUserSerializer,
+    security=[{"Bearer": []}]
+)
 @api_view(['POST'])
 def editProfile(request):
     print("________________________edit_profile_______________________")
     user = request.user
     print(user)
-    # if 'profile_picture' in request.FILES:
-    #     print('file is here')
-    #     print(request.FILES['profile_picture'].name)
-    # else:
-    #     print('ghjghjghghjghjghjg')
     serializer = editUserSerializer(
         user, data=request.data, partial=True)  # For partial updates
     if serializer.is_valid():

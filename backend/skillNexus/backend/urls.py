@@ -10,11 +10,11 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="REST APIs",
+        title="SKILL NEXUS REST APIs",
         default_version='v1',
         description="API documentation",
-        terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@snippets.local"),
+        terms_of_service="https://www.skill-nexus.sankarsan.xyz/policies/terms/",
+        contact=openapi.Contact(email="dev@sankarsan.xyz"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
