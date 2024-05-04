@@ -8,7 +8,7 @@ $("#btn_reg").click(function (e) {
   } else {
     $.ajax({
       type: "POST",
-      url: "./api/signup",
+      url: apiLink + "/api/signup",
       data: data,
       // dataType: "application/json",
       success: function (response) {
@@ -36,7 +36,7 @@ $("#btn_login").click(function (e) {
 
   $.ajax({
     type: "POST",
-    url: "./api/login",
+    url: apiLink + "./api/login",
     data: data,
     // dataType: "application/json",
     success: function (response) {

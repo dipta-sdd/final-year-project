@@ -1,8 +1,10 @@
 let user = get_user();
+
 // if (!user) {
 //   location.replace("/login");
 // }
 console.log(user);
+
 $(".profile-pic .fa-user").addClass("d-none");
 $(".profile-pic").append(
   `<img src="${apiLink + user.profile_picture}" alt=""/>`
@@ -10,15 +12,169 @@ $(".profile-pic").append(
 $(".name").text(user.first_name + " " + user.last_name);
 $(".username").text("(" + user.username + ")");
 $(".role").text(user.role);
-showPersonalDetails(user);
-// click on save on personal details
-$(".btn-edit-p").click(function (e) {
+showProfileDetails(user);
+// show personal details
+$.ajax({
+  type: "POST",
+  url: apiLink + "/api/personal_details",
+  data: { id: user.id },
+  success: function (res) {
+    console.log(res);
+    $(".personal-details").html(`
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Father's Name</span>
+          <input type="text" name="father_name" value="${
+            res.father_name ? res.father_name : ""
+          }" class="form-control per-name" disabled="" />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Mother's Name</span>
+          <input type="text" name="mother_name" value="${
+            res.mother_name ? res.mother_name : ""
+          }" class="form-control per-name" disabled />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Gender</span>
+          <select  name="gender" class="form-control per-name" disabled >
+          <option></option>
+          <option value="Male" ${
+            res.gender == "Male" ? "selected" : ""
+          }>Male</option>
+          <option value="Female" ${
+            res.gender == "Female" ? "selected" : ""
+          }>Female</option>
+          <option value="Other" ${
+            res.gender == "Other" ? "selected" : ""
+          }>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Date of Birth</span>
+          <input type="date" name="date_of_birth" value="${
+            res.date_of_birth ? res.date_of_birth : ""
+          }" class="form-control per-name" disabled />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Religion</span>
+          <input type="text" name="religion" value="${
+            res.religion ? res.religion : ""
+          }" class="form-control per-name" disabled />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Marital Status</span>
+          <select name="marital_status" class="form-control per-name" disabled >
+          <option></option>
+          <option value="Single" ${
+            res.marital_status == "Single" ? "selected" : ""
+          }>Single</option>
+          <option value="Married" ${
+            res.marital_status == "Married" ? "selected" : ""
+          }>Married</option>
+          </select>
+        </div>
+      </div>
+    `);
+  },
+  error: function (err) {
+    res = err.responseJSON;
+    $(".personal-details").html(`
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Father's Name</span>
+          <input type="text" name="father_name" value="${
+            res.father_name ? res.father_name : ""
+          }" class="form-control per-name" disabled="" />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Mother's Name</span>
+          <input type="text" name="mother_name" value="${
+            res.mother_name ? res.mother_name : ""
+          }" class="form-control per-name" disabled />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Gender</span>
+          <select  name="gender" class="form-control per-name" disabled >
+          <option></option>
+          <option value="Male" ${
+            res.gender == "Male" ? "selected" : ""
+          }>Male</option>
+          <option value="Female" ${
+            res.gender == "Female" ? "selected" : ""
+          }>Female</option>
+          <option value="Other" ${
+            res.gender == "Other" ? "selected" : ""
+          }>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Date of Birth</span>
+          <input type="date" name="date_of_birth" value="${
+            res.date_of_birth ? res.date_of_birth : ""
+          }" class="form-control per-name" disabled />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Religion</span>
+          <input type="text" name="religion" value="${
+            res.religion ? res.religion : ""
+          }" class="form-control per-name" disabled />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Marital Status</span>
+          <select name="marital_status" class="form-control per-name" disabled >
+          <option></option>
+          <option value="Single" ${
+            res.marital_status == "Single" ? "selected" : ""
+          }>Single</option>
+          <option value="Married" ${
+            res.marital_status == "Married" ? "selected" : ""
+          }>Married</option>
+          </select>
+        </div>
+      </div>
+    `);
+  },
+});
+
+const btn_edit_per = document.getElementById("btn-edit-personal");
+console.log(btn_edit_per);
+
+$(document).on("click", "#personal .btn-edit-p", function (e) {
   e.preventDefault();
-  // alert("gfh");
-  $(".btn-edit-p").toggleClass("d-none");
-  $(".btn-save-p").toggleClass("d-none");
-  $(".personal-details").html(`
-  <div class="col-6">
+  $("#personal input").removeAttr("disabled");
+  $("#personal select").removeAttr("disabled");
+  $("#personal .btn-edit-p").toggleClass("d-none");
+  $("#personal .btn-save-p").toggleClass("d-none");
+});
+
+// click on edit on profile details
+$(document).on("click", "#btn-edit-profile", function (e) {
+  // $("#profile .btn-edit-p").click(function (e) {
+  e.preventDefault();
+  $("#profile .btn-edit-p").toggleClass("d-none");
+  $("#profile .btn-save-p").toggleClass("d-none");
+  $(".profile-details2").html(`
+  <div class="col-lg-6">
     <div class="input-group mb-3">
       <span class="input-group-text">First Name</span>
       <input type="text" value="${
@@ -26,7 +182,7 @@ $(".btn-edit-p").click(function (e) {
       }" class="form-control f-name"  />
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-lg-6">
     <div class="input-group mb-3">
       <span class="input-group-text">Last Name</span>
       <input type="text" value="${
@@ -34,7 +190,7 @@ $(".btn-edit-p").click(function (e) {
       }" class="form-control l-name"  />
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-lg-6">
     <div class="input-group mb-3">
       <span class="input-group-text">Username </span>
       <input type="text" value="${
@@ -42,7 +198,7 @@ $(".btn-edit-p").click(function (e) {
       }" class="form-control u-name" disabled />
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-lg-6">
     <div class="input-group mb-3">
       <span class="input-group-text">Mobile </span>
       <input type="number" value="${
@@ -50,7 +206,7 @@ $(".btn-edit-p").click(function (e) {
       }" class="form-control mobile" />
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-lg-6">
     <div class="input-group mb-3">
       <span class="input-group-text">Email </span>
       <input type="email" value="${
@@ -58,7 +214,7 @@ $(".btn-edit-p").click(function (e) {
       }" class="form-control email" disabled/>
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-lg-6">
     <div class="input-group mb-3">
       <span class="input-group-text">Country</span>
       <input type="text" value="${
@@ -77,7 +233,7 @@ $(".btn-edit-p").click(function (e) {
 `);
 });
 
-$(".btn-save-p").on("click", function (e) {
+$("#profile .btn-save-p").on("click", function (e) {
   e.preventDefault();
 
   let data = {
@@ -101,7 +257,10 @@ $(".btn-save-p").on("click", function (e) {
     .then(function (res) {
       console.log(res);
       showToast("Details Successfully updated.", "primary");
-      showPersonalDetails(res);
+      res.username = user.username;
+      showProfileDetails(res);
+      $("#profile .btn-edit-p").toggleClass("d-none");
+      $("#profile .btn-save-p").toggleClass("d-none");
     })
     .catch(function (error) {
       console.log(error);
@@ -109,11 +268,38 @@ $(".btn-save-p").on("click", function (e) {
     });
 });
 
+// personal details save
+$(document).on("click", "#personal .btn-save-p", function (e) {
+  e.preventDefault();
+  let data = collectData("personal");
+  data["id"] = user.id;
+  $.ajax({
+    type: "POST",
+    url: apiLink + "/api/personal_details/edit",
+    data: data,
+    headers: {
+      Authorization: "Bearer " + getCookie("token"),
+    },
+  })
+    .then(function (res) {
+      console.log(res);
+      showToast("Details Successfully updated.", "primary");
+      $("#personal .btn-edit-p").toggleClass("d-none");
+      $("#personal .btn-save-p").toggleClass("d-none");
+      restoreData("personal", res);
+    })
+    .catch(function (error) {
+      console.log(error);
+      showToast("Details update failed.", "danger");
+    });
+});
+//
+//
 // showing personal detail of the user
-function showPersonalDetails(user) {
-  $(".personal-details").html(`
+function showProfileDetails(user) {
+  $(".profile-details2").html(`
     
-    <div class="col-6">
+    <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Name</span>
         <input type="text" value="${
@@ -121,8 +307,8 @@ function showPersonalDetails(user) {
         }" class="form-control per-name" disabled />
       </div>
     </div>
-    <div class="col-6"></div>
-    <div class="col-6">
+    <div class="col-lg-6"></div>
+    <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Username </span>
         <input type="text" value="${
@@ -130,7 +316,7 @@ function showPersonalDetails(user) {
         }" class="form-control per-name" disabled />
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Mobile </span>
         <input type="text" value="${
@@ -138,7 +324,7 @@ function showPersonalDetails(user) {
         }" class="form-control per-name" disabled />
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Email </span>
         <input type="email" value="${
@@ -146,7 +332,7 @@ function showPersonalDetails(user) {
         }" class="form-control per-name" disabled />
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Country</span>
         <input type="text" value="${
@@ -234,6 +420,7 @@ function getCroppedImage() {
           "src",
           apiLink + res.profile_picture
         );
+        $("#myModal").modal("hide");
         console.log(res);
       },
     });
@@ -253,4 +440,32 @@ function dataURItoBlob(dataURI) {
     ia[i] = byteString.charCodeAt(i);
   }
   return new Blob([ab], { type: mimeString });
+}
+
+// collect data under a div
+function collectData(id) {
+  const data = {};
+
+  // Iterate over each input within the #personal div
+  $(`#${id} .form-control.per-name`).each(function () {
+    const inputType = $(this).prop("tagName");
+    const name = $(this).attr("name");
+
+    if (inputType === "INPUT") {
+      data[name] = $(this).val();
+    } else if (inputType === "SELECT") {
+      data[name] = $(this).val();
+    }
+  });
+
+  return data;
+}
+
+//deable and show new data
+function restoreData(id, data) {
+  $(`#${id} .form-control.per-name`).each(function () {
+    const name = $(this).attr("name");
+    $(this).val(data[name]);
+    $(this).attr("disabled", "");
+  });
 }

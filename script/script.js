@@ -1,5 +1,10 @@
-const apiLink = "http://127.0.0.1:8000";
-// covert form data to js object
+let currentURL = window.location.href;
+let urlParts = currentURL.split("/");
+let thirdSlashPart = urlParts.slice(0, 3).join("/");
+const apiLink = thirdSlashPart;
+if (apiLink == "https://skill-nexus.sankarsan.xyz") {
+  apiLink = "https://skill-nexus-api.sankarsan.xyz";
+}
 function toObj(arr) {
   var obj = {};
   for (var i = 0; i < arr.length; i++) {
@@ -82,6 +87,7 @@ function on_page_load() {
     .then(function (user) {
       localStorage.setItem("user", JSON.stringify(user));
       $(".logged-in").removeClass("d-none");
+      $(`.u-${user.role}`).removeClass("d-none");
       if (user.profile_picture) {
         $("#nav_con .profile-con .icon").addClass("d-none");
         $("#nav_con .profile-con").append(`

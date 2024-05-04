@@ -67,7 +67,6 @@
     <script src="../script/script.js"></script>
     <script>
       $(document).ready(function () {
-        Sidebar();
         on_page_load();
       });
     </script>

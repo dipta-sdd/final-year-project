@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from .models import User
+from .models import *
 
 
 class CurrentUserSerializer(serializers.ModelSerializer):
@@ -43,9 +43,38 @@ class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(style={'input_type': 'password'})
 
+# for edit profile
+
 
 class editUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('bio', 'country', 'profile_picture', 'mobile',
                   'first_name', 'last_name', 'email')
+# for personal details
+
+
+class PersonalDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PersonalDetails
+        fields = ('id', 'father_name', 'mother_name',
+                  'gender', 'date_of_birth', 'religion', 'marital_status')
+
+
+class Edu_levelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Edu_level
+        fields = ('id', 'name')
+
+
+class Edu_degreeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Edu_degree
+        fields = ('id', 'name', 'level')
+
+
+class Edu_group_or_majorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Edu_group_or_major
+        fields = ('id', 'name', 'degree')

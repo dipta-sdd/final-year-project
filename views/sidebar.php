@@ -182,9 +182,14 @@
             <li>
               <a href="/"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
-            <li>
+            <li class=" d-none logged-in">
               <a href="/profile"
                 ><span class="fa fa-download mr-3 notif"></span> Profile</a
+              >
+            </li>
+            <li class=" d-none u-Admin">
+              <a href="/manage/education"
+                ><span class="fa fa-download mr-3 notif"></span> Educations</a
               >
             </li>
             <li>
@@ -193,7 +198,7 @@
             <li>
               <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
             </li>
-            <li>
+            <li class=" d-none logged-in">
               <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
             </li>
             <li>

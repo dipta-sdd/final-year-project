@@ -155,18 +155,42 @@
               </div>
             </div>
           </div>
-
-          <div class="row my-color mybg my-row">
+          <!-- profile -->
+          <div class="row my-color mybg my-row" id="profile">
             <div class="d-flex">
-              <b class="flex-grow-1">Personal details</b>
+              <b class="flex-grow-1">Profile details</b>
               <div>
-                <button type="button" class="btn btn-outline-danger btn-edit-p">
+                <button type="button" class="btn btn-outline-danger btn-edit-p" id="btn-edit-profile">
                   <i class="fa-solid fa-pen pe-1"> </i>Edit
                 </button>
                 <button
                   type="button"
                   class="btn btn-outline-danger btn-save-p d-none"
                   id="btn-save"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+            <div class="col-11"></div>
+            <div class="col-1"></div>
+            <hr class="profile-hr" />
+            <div class="col-12">
+              <div class="row profile-details2"></div>
+            </div>
+          </div>
+          <!-- personal details -->
+          <div class="row my-color mybg my-row" id="personal">
+            <div class="d-flex">
+              <b class="flex-grow-1">Personal details</b>
+              <div>
+                <button type="button" class="btn btn-outline-danger btn-edit-p" id="btn-edit-personal">
+                  <i class="fa-solid fa-pen pe-1"> </i>Edit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-danger btn-save-p d-none"
+                  id="btn-save-personal"
                 >
                   Save
                 </button>
