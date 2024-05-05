@@ -157,4 +157,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGIN = [
     "http://127.0.0.1:5500",
     "http://127.0.0.1",
+    "https://skill-nexus.sankarsan.xyz",
 ]

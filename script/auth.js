@@ -36,7 +36,7 @@ $("#btn_login").click(function (e) {
 
   $.ajax({
     type: "POST",
-    url: apiLink + "./api/login",
+    url: apiLink + "/api/login",
     data: data,
     // dataType: "application/json",
     success: function (response) {

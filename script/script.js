@@ -2,6 +2,7 @@ let currentURL = window.location.href;
 let urlParts = currentURL.split("/");
 let thirdSlashPart = urlParts.slice(0, 3).join("/");
 const apiLink = thirdSlashPart;
+// if (apiLink == "https://skill-nexus.sankarsan.xyz") {
 if (apiLink == "https://skill-nexus.sankarsan.xyz") {
   apiLink = "https://skill-nexus-api.sankarsan.xyz";
 }

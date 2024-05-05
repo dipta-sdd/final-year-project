@@ -49,6 +49,7 @@ function showLevel(levels) {
     </div>
     `);
     if (level.degrees.length <= 0) {
+      $(`#collapse_level` + level.id).hide();
       $(`#collapse_level${level.id} .level`).html(`
         <div class="alert alert-danger mb-0 py-0" role="alert">
             No Degree.
@@ -99,9 +100,7 @@ function showLevel(levels) {
 }
 // selecting level on add group
 levelSelector = document.getElementById("addGrouplevel");
-$(levelSelector).click(function (e) {
-  // $(document).on(`change`, levelSelector, function (e) {
-  e.preventDefault();
+$(levelSelector).change(function (e) {
   val = $(levelSelector).val();
   $(`#addGroup select.form-control.degree`).val("");
   $(`#addGroup select.form-control.degree .opt`).addClass("d-none");

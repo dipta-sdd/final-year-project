@@ -207,7 +207,7 @@ def edu_group_or_mejor(req):
             return Response({'msg': 'No group/major Found'}, status=status.HTTP_204_NO_CONTENT)
     elif req.method == 'POST' and user['role'] == 'Admin':
         serializer = Edu_group_or_majorSerializer(data=req.data, partial=True)
-        print(req.data)
+        # print(req.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -224,7 +224,7 @@ def edu_get(req):
                   for level in levels]
         # result= []
         for level in levels:
-            print(level['id'])
+            # print(level['id'])
             cursor.execute(
                 f"select name,id from data_edu_degree where level_id={level['id']}")
             degrees = cursor.fetchall()
