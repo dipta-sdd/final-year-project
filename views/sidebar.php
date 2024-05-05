@@ -204,9 +204,9 @@
             <li>
               <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
             </li>
-            <li class="logged-in d-none">
+            <li class="logged-in d-none  logout">
               <a href="/logout"
-                ><span class="fa fa-sign-out mr-3"></span> Sign Out</a
+                ><span class="fa fa-sign-out mr-3 logout"></span> Sign Out</a
               >
             </li>
             <li class="logged-out d-none">

@@ -20,9 +20,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../style/cropper.min.css"/>
     <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="../style/profile.css" />
   </head>
   <body>
     <div aria-live="polite" aria-atomic="true" class="position-relative">
@@ -32,13 +30,14 @@
     </div>
     <?php include 'sidebar.php' ?>
   
-      <div class="my-round" id="body"  data-bs-theme="light">
-        <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item" aria-current="page">Profile</li>
-          </ol>
-        </nav>
+        <div class="my-round" id="body">
+          <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item" aria-current="page">Login</li>
+            </ol>
+          </nav>
+
           <!-- main body-->
           <!-- main body-->
           <!-- main body-->
@@ -171,8 +170,8 @@
             <div class="col-11"></div>
             <div class="col-1"></div>
             <hr class="profile-hr" />
-            <div class="col-12">
-              <div class="row profile-details2"></div>
+            <div class="col-12 m-0">
+              <div class="row profile-details2 m-0"></div>
             </div>
           </div>
           <!-- personal details -->
@@ -206,10 +205,11 @@
           <!-- main body-->
           <!-- main body-->
           <!-- main body-->
+        </div>
       </div>
     </div>
-    </div>
 
+    
     <script src="../script/bootstrap.bundle.min.js"></script>
     <script src="../script/jquery-3.7.1.min.js"></script>
     <script src="../script/cropper.min.js"></script>

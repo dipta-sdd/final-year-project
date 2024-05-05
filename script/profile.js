@@ -297,7 +297,7 @@ $(document).on("click", "#personal .btn-save-p", function (e) {
 //
 // showing personal detail of the user
 function showProfileDetails(user) {
-  $(".profile-details2").html(`
+  $(".profile-details2").append(`
     
     <div class="col-lg-6">
       <div class="input-group mb-3">
@@ -307,7 +307,9 @@ function showProfileDetails(user) {
         }" class="form-control per-name" disabled />
       </div>
     </div>
+
     <div class="col-lg-6"></div>
+    
     <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Username </span>
@@ -316,6 +318,7 @@ function showProfileDetails(user) {
         }" class="form-control per-name" disabled />
       </div>
     </div>
+    
     <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Mobile </span>
@@ -324,6 +327,7 @@ function showProfileDetails(user) {
         }" class="form-control per-name" disabled />
       </div>
     </div>
+    
     <div class="col-lg-6">
       <div class="input-group mb-3">
         <span class="input-group-text">Email </span>
