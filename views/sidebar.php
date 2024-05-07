@@ -192,6 +192,11 @@
                 ><span class="fa fa-download mr-3 notif"></span> Educations</a
               >
             </li>
+            <li class=" d-none u-Student">
+              <a href="/education"
+                ><span class="fa fa-book mr-3 notif"></span> Educations</a
+              >
+            </li>
             <li>
               <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
             </li>

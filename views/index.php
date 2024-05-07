@@ -19,6 +19,7 @@
     />
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../style/breadcrumb.css" />
+    <link rel="stylesheet" href="../style/home.css" />
   </head>
   <body>
     <div aria-live="polite" aria-atomic="true" class="position-relative">
@@ -29,21 +30,59 @@
 
     <?php include 'sidebar.php' ?>
   
-      <div class="my-round " id="body" data-bs-theme="light">
-        <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item text-primary"><a href="/">Home</a></li>
-            <!-- <li class="breadcrumb-item" aria-current="page">Login</li> -->
-          </ol>
-        </nav>
-        
-        
-
-
-
-
-
-      </div>
+      <div class="my-round" id="body" data-bs-theme="light">
+          <div class="row my-color mybg my-row p-0">
+            <div class="col-12 part1" style="background-color: #74b9ff">
+              <div class="row">
+                <div class="col-lg-6 text-light">
+                  <div class="text-right">
+                    <h1>Unlock Your Potential <br /></h1>
+                    <h1>Chart Your Path</h1>
+                    <b id="demo">
+                      Explore career, gain practical skills <br />
+                      achieve your goals.</b
+                    >
+                  </div>
+                </div>
+                <div class="col-lg-6 img">
+                  <img
+                    src="../images/1361472_193.svg"
+                    style="width: 100%"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 pos-rel p-0" style="background-color: #0004ff">
+              <img
+                src="../images/wavesOpacity1.svg"
+                style="width: 100%"
+                alt=""
+              />
+            </div>
+            <div class="col-12 part2" style="background-color: #0004ff">
+              <div class="row">
+                <div class="col-lg-6 img">
+                  <img
+                    src="../images/banner_student.svg"
+                    style="width: 100%"
+                    alt=""
+                  />
+                </div>
+                <div class="col-lg-6 text-light">
+                  <div class="text-right">
+                    <h1>Unlock Your Potential <br /></h1>
+                    <h1>Chart Your Path</h1>
+                    <b id="demo">
+                      Explore career, gain practical skills <br />
+                      achieve your goals.</b
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     </div>
 
@@ -53,7 +92,9 @@
     <script src="../script/script.js"></script>
     <script>
       $(document).ready(function () {
+        hide_sidebar();
         on_page_load();
+        
       });
     </script>
   </body>

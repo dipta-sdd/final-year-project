@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SkilNexus</title>
     <link href="../style/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link href="../style" rel="stylesheet"/> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -19,12 +20,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"
-    />
     <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="../style/profile.css" />
+    <link rel="stylesheet" href="../style/home.css" />
+    <link rel="stylesheet" href="../style/breadcrumb.css" />
   </head>
   <body>
     <div aria-live="polite" aria-atomic="true" class="position-relative">
@@ -216,9 +214,19 @@
             <li>
               <a href="/"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
-            <li>
+            <li class="d-none logged-in">
               <a href="/profile"
                 ><span class="fa fa-download mr-3 notif"></span> Profile</a
+              >
+            </li>
+            <li class="d-none u-Admin">
+              <a href="/manage/education"
+                ><span class="fa fa-download mr-3 notif"></span> Educations</a
+              >
+            </li>
+            <li class="d-none u-Student">
+              <a href="/education"
+                ><span class="fa fa-book mr-3 notif"></span> Educations</a
               >
             </li>
             <li>
@@ -227,15 +235,15 @@
             <li>
               <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
             </li>
-            <li>
+            <li class="d-none logged-in">
               <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
             </li>
             <li>
               <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
             </li>
-            <li class="logged-in d-none">
+            <li class="logged-in d-none logout">
               <a href="/logout"
-                ><span class="fa fa-sign-out mr-3"></span> Sign Out</a
+                ><span class="fa fa-sign-out mr-3 logout"></span> Sign Out</a
               >
             </li>
             <li class="logged-out d-none">
@@ -248,201 +256,84 @@
         <div class="sidebar_btn">
           <i class="fa-solid fa-chevron-up fa-rotate-90 fa-2xl"></i>
         </div>
-
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
         <div class="my-round" id="body" data-bs-theme="light">
-          <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item" aria-current="page">Profile</li>
-            </ol>
-          </nav>
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <div class="row my-color mybg my-row">
-            <div class="col d-flex">
-              <div class="profile-pic">
-                <!-- if no profile picture then it will be shown -->
-                <i class="fa-regular fa-user fa-2xl"></i>
-                <button
-                  type="button"
-                  class="btn btn-primary edit-pic-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#profilePicChangeModal"
-                >
-                  <i class="fa-solid fa-pen fa-lg" style="color: #ffffff"></i>
-                </button>
-                <!-- modal -->
-                <!-- modal -->
-                <!-- modal -->
-                <!-- Modal -->
-                <!-- Modal for profile pic change -->
-                <div
-                  class="modal fade"
-                  id="profilePicChangeModal"
-                  data-bs-backdrop="static"
-                  data-bs-keyboard="false"
-                  tabindex="-1"
-                  aria-labelledby="profilePicChangeModalLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1
-                          class="modal-title fs-5"
-                          id="profilePicChangeModalLabel"
-                        >
-                          Change Profile Picture
-                        </h1>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        <!-- preview img -->
-                        <img
-                          id="imagePreview"
-                          src="#"
-                          alt="Image Preview"
-                          style="max-width: 200px; display: none"
-                        />
-                        <!-- preview img -->
-                        <div class="input-group mb-3">
-                          <input
-                            type="file"
-                            class="form-control"
-                            id="imageUpload"
-                            accept="image/*"
-                          />
-                          <input
-                            type="hidden"
-                            id="croppedImageData"
-                            name="croppedImage"
-                          />
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          id="saveCropedPic"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </div>
+          <div class="row my-color mybg my-row p-0">
+            <div class="col-12 part1" style="background-color: #74b9ff">
+              <div class="row">
+                <div class="col-lg-6 text-light">
+                  <div class="text-right">
+                    <h1>Unlock Your Potential <br /></h1>
+                    <h1>Chart Your Path</h1>
+                    <b id="demo">
+                      Explore career, gain practical skills <br />
+                      achieve your goals.</b
+                    >
                   </div>
                 </div>
-                <!-- modal -->
-                <!-- modal -->
-                <!-- modal -->
-              </div>
-
-              <div class="ps-3 profile-details">
-                <div class="row">
-                  <b class="name"></b>
-                  <i class="username"></i>
-                  <p class="role align-bottom"></p>
+                <div class="col-lg-6 img">
+                  <img
+                    src="../images/1361472_193.svg"
+                    style="width: 100%"
+                    alt=""
+                  />
                 </div>
               </div>
-
-              <div class="ms-auto">
-                <button
-                  type="button"
-                  class="btn btn-outline-danger ms-auto me-0"
-                >
-                  Download CV
-                </button>
+            </div>
+            <div class="col-12 pos-rel p-0" style="background-color: #0004ff">
+              <img
+                src="../images/wavesOpacity1.svg"
+                style="width: 100%"
+                alt=""
+              />
+            </div>
+            <div class="col-12 part2" style="background-color: #0004ff">
+              <div class="row">
+                <div class="col-lg-6 img">
+                  <img
+                    src="../images/banner_student.svg"
+                    style="width: 100%"
+                    alt=""
+                  />
+                </div>
+                <div class="col-lg-6 text-light">
+                  <div class="text-right">
+                    <h1>Unlock Your Potential <br /></h1>
+                    <h1>Chart Your Path</h1>
+                    <b id="demo">
+                      Explore career, gain practical skills <br />
+                      achieve your goals.</b
+                    >
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <!-- profile -->
-          <div class="row my-color mybg my-row" id="profile">
-            <div class="d-flex">
-              <b class="flex-grow-1">Profile details</b>
-              <div>
-                <button type="button" class="btn btn-outline-danger btn-edit-p">
-                  <i class="fa-solid fa-pen pe-1"> </i>Edit
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-danger btn-save-p d-none"
-                  id="btn-save"
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-            <div class="col-11"></div>
-            <div class="col-1"></div>
-            <hr class="profile-hr" />
-            <div class="col-12">
-              <div class="row profile-details2"></div>
-            </div>
-          </div>
-          <!-- personal details -->
-          <div class="row my-color mybg my-row" id="personal">
-            <div class="d-flex">
-              <b class="flex-grow-1">Personal details</b>
-              <div>
-                <button
-                  type="button"
-                  class="btn btn-outline-danger btn-edit-p"
-                  id="btn-edit-personal"
-                >
-                  <i class="fa-solid fa-pen pe-1"> </i>Edit
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-danger btn-save-p d-none"
-                  id="btn-save-personal"
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-            <div class="col-11"></div>
-            <div class="col-1"></div>
-            <hr class="profile-hr" />
-            <div class="col-12">
-              <div class="row personal-details"></div>
-            </div>
-          </div>
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
-          <!-- main body-->
         </div>
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
+        <!-- main body-->
       </div>
     </div>
 
     <script src="../script/bootstrap.bundle.min.js"></script>
 
     <script src="../script/jquery-3.7.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-
     <script src="../script/script.js"></script>
-    <script src="../script/profile.js"></script>
+    <script src="../script/home.js"></script>
     <script>
       $(document).ready(function () {
+        hide_sidebar();
         on_page_load();
       });
     </script>

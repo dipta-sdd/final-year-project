@@ -36,11 +36,15 @@ function showLevel(levels) {
     <div class="accordion" id="level${level.id}">
         <div class="accordion-item">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_level${level.id}" aria-expanded="true" aria-controls="collapse">
+            <button class="accordion-button ${
+              level.degrees.length == 0 ? "collapsed" : ""
+            }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_level${level.id}" aria-expanded="${level.degrees.length == 0 ? "false" : "true"}" aria-controls="collapse">
             ${level.name}
             </button>
         </h2>
-        <div id="collapse_level${level.id}" class="accordion-collapse collapse show" data-bs-parent="#level${level.id}">
+        <div id="collapse_level${
+          level.id
+        }" class="accordion-collapse collapse ${level.degrees.length == 0 ? "" : "show"}" data-bs-parent="#level${level.id}">
             <div class="accordion-body level ps-5">
                 
             </div>
@@ -49,7 +53,6 @@ function showLevel(levels) {
     </div>
     `);
     if (level.degrees.length <= 0) {
-      $(`#collapse_level` + level.id).hide();
       $(`#collapse_level${level.id} .level`).html(`
         <div class="alert alert-danger mb-0 py-0" role="alert">
             No Degree.

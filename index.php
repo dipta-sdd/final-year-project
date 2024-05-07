@@ -20,8 +20,8 @@ switch ($requests[0]) {
     case 'profile' :
         require __DIR__ . '/views/profile.php';
         break;
-    case 'profile2' :
-        require __DIR__ . '/views/profile2.php';
+    case 'education' :
+        require __DIR__ . '/views/education.php';
         break;
     case 'manage/education' :
         require __DIR__ . '/views/manage_education.php';

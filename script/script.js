@@ -78,6 +78,11 @@ function on_page_load() {
   } else {
     goLight();
   }
+  // sidebar activation
+  $(`#sidebar ul li`).each(function () {
+    a = this.child;
+  });
+
   $.ajax({
     type: "GET",
     url: apiLink + "/api/current_user",
@@ -185,3 +190,8 @@ $(".sidebar_btn i").click(function (e) {
   $(".sidebar_btn i").toggleClass("fa-rotate-90");
   $(".sidebar_btn i").toggleClass("fa-rotate-270");
 });
+// hide sidebar
+function hide_sidebar() {
+  $("#sidebar").addClass("d-none");
+  $("#body").addClass("ms-auto");
+}

@@ -297,7 +297,7 @@ $(document).on("click", "#personal .btn-save-p", function (e) {
 //
 // showing personal detail of the user
 function showProfileDetails(user) {
-  $(".profile-details2").append(`
+  $(".profile-details2").html(`
     
     <div class="col-lg-6">
       <div class="input-group mb-3">
@@ -424,7 +424,8 @@ function getCroppedImage() {
           "src",
           apiLink + res.profile_picture
         );
-        $("#myModal").modal("hide");
+        $("#profilePicChangeModal").modal("hide");
+        console.log(`$("#profilePicChangeModal").modal("hide");`);
         console.log(res);
       },
     });
@@ -473,3 +474,19 @@ function restoreData(id, data) {
     $(this).attr("disabled", "");
   });
 }
+
+// let button = $("button.btn.btn-outline-danger.ms-auto.me-0");
+// let makepdf = document.getElementById("body");
+// $("button.btn.btn-outline-danger.ms-auto.me-0").click(function (e) {
+//   e.preventDefault();
+//   // alert("");
+//   let mywindow = window.open("", "PRINT", "height=400,width=600");
+
+//   mywindow.document.write(makepdf.innerHTML);
+//   mywindow.document.close();
+//   mywindow.focus();
+//   window.print();
+//   mywindow.close();
+
+//   return true;
+// });
