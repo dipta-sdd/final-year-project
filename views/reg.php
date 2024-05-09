@@ -49,7 +49,7 @@
                   class="radio-button__input"
                   id="radio1"
                   name="role"
-                  value="regular_user"
+                  value="Student"
                 />
                 <label class="radio-button__label" for="radio1">
                   <span class="radio-button__custom"></span>
@@ -62,7 +62,7 @@
                   class="radio-button__input"
                   id="radio2"
                   name="role"
-                  value="employer"
+                  value="Employer"
                 />
                 <label class="radio-button__label" for="radio2">
                   <span class="radio-button__custom"></span>
@@ -70,19 +70,28 @@
                 </label>
               </div>
               <div class="radio-button">
-                <input
-                  type="radio"
-                  class="radio-button__input"
-                  id="radio3"
-                  name="role"
-                  value="university"
-                />
+                <input type="radio" class="radio-button__input" id="radio3" name="role" value="University"/>
                 <label class="radio-button__label" for="radio3">
                   <span class="radio-button__custom"></span>
                   University
                 </label>
               </div>
               <br />
+              <div class="radio-button">
+                <input type="radio" class="radio-button__input" id="radio4" name="role" value="Educator"/>
+                <label class="radio-button__label" for="radio4">
+                  <span class="radio-button__custom"></span>
+                  Educator
+                </label>
+              </div>
+              <div class="radio-button">
+                <input type="radio" class="radio-button__input" id="radio5" name="role" value="Freelancer"/>
+                <label class="radio-button__label" for="radio5">
+                  <span class="radio-button__custom"></span>
+                  Freelancer
+                </label>
+              </div>
+              <br>
               <small class="err"></small>
             </div>
 
@@ -101,12 +110,14 @@
             <div class="user-box password">
               <input type="password" name="password" required="" />
               <label>Password</label>
+              <span class="eye" target="password"><i class="fa-regular fa-eye-slash" style="color: #ffffff;"></i></span>
               <small class="err"> </small>
             </div>
 
             <div class="user-box confirm_password">
               <input type="password" name="confirm_password" required="" />
               <label>Confirm Password</label>
+              <span class="eye" target="confirm_password"><i class="fa-regular fa-eye-slash" style="color: #ffffff;"></i></span>
               <small class="err"> </small>
             </div>
 
@@ -134,6 +145,7 @@
     <script src="../script/auth.js"></script>
     <script>
       $(document).ready(function () {
+        hide_sidebar();
         on_page_load();
       });
     </script>

@@ -6,10 +6,10 @@ $requests= explode('?',$request);
 // echo $_SERVER['REQUEST_URI'];
 switch ($requests[0]) {
     case '/' :
-        require __DIR__ . '/views/index.php';
+        require __DIR__ . '/views/home.html';
         break;
     case '' :
-        require __DIR__ . '/views/index.php';
+        require __DIR__ . '/views/home.html';
         break;
     case 'login' :
         require __DIR__ . '/views/login.php';

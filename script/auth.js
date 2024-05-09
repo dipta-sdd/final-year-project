@@ -43,7 +43,7 @@ $("#btn_login").click(function (e) {
       // console.log(response);
       showToast(response.message, "info");
       createCookie("token", response.access_token, 3);
-      location.replace("/");
+      location.replace("/profile");
     },
     error: function (e) {
       const data = e.responseJSON;
@@ -56,4 +56,18 @@ $("#btn_login").click(function (e) {
       }
     },
   });
+});
+
+$(".user-box .eye").click(function (e) {
+  e.preventDefault();
+
+  let target = $(this).attr("target");
+  let type = $(`.${target} input`).attr("type");
+  if (type == "password") {
+    $(`.${target} input`).attr("type", "text");
+  } else {
+    $(`.${target} input`).attr("type", "password");
+  }
+  $(`.${target} i.fa-regular`).toggleClass("fa-eye-slash");
+  $(`.${target} i.fa-regular`).toggleClass("fa-eye");
 });

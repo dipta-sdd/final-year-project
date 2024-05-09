@@ -31,52 +31,55 @@
 
     <?php include 'sidebar.php' ?>
  
-      <div class="my-round" id="body"  data-bs-theme="light">
+      <div class="my-round" id="body"  data-bs-theme="light" >
         <nav aria-label="breadcrumb" class="mybg-t breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item" aria-current="page">Login</li>
           </ol>
         </nav>
-        <div class="login-box">
-          <h2>Login</h2>
-          <form id="login_form">
-            <div class="user-box username">
-              <input
-                type="text"
-                name="username"
-                autocomplete="off"
-                required=""
-              />
-              <label>Username</label>
-              <small class="err"> </small>
-            </div>
-            <div class="user-box password">
-              <input
-                type="password"
-                name="password"
-                autocomplete="off"
-                required=""
-              />
-              <label>Password</label>
-              <small class="err"> </small>
-            </div>
-            <div class="message">
-              <small class="text-danger"></small>
-            </div>
+        <div class="login-box-container">
+          <div class="login-box">
+            <h2>Login</h2>
+            <form id="login_form">
+              <div class="user-box username">
+                <input
+                  type="text"
+                  name="username"
+                  autocomplete="off"
+                  required=""
+                />
+                <label>Username</label>
+                <small class="err"> </small>
+              </div>
+              <div class="user-box password">
+                <input
+                  type="password"
+                  name="password"
+                  autocomplete="off"
+                  required=""
+                />
+                <label>Password</label>
+                <span class="eye" target="password"><i class="fa-regular fa-eye-slash" style="color: #ffffff;"></i></span>
+                <small class="err"> </small>
+              </div>
+              <div class="message">
+                <small class="text-danger"></small>
+              </div>
 
-            <p style="color: white">
-              Don't have an account?
-              <a class="link" href="/signup">Sign-up now!</a>
-            </p>
-            <a href="#" class="button" id="btn_login">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Login
-            </a>
-          </form>
+              <p style="color: white">
+                Don't have an account?
+                <a class="link" href="/signup">Sign-up now!</a>
+              </p>
+              <a href="#" class="button" id="btn_login">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Login
+              </a>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -90,6 +93,7 @@
     <script>
       $(document).ready(function () {
         // Sidebar();
+        hide_sidebar();
         on_page_load();
       });
     </script>

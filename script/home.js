@@ -1,12 +1,37 @@
-var i = 0;
-var txt = "Lorem ipsum typing effect!"; /* The text */
-var speed = 50; /* The speed/duration of the effect in milliseconds */
+let timer = setInterval(slide, 18000);
 
-function typeWriter() {
-  if (i < txt.length) {
-    obj = $(".part1 h1");
-    obj.innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
+function slide() {
+  let next = $("#slider .myslide.show").attr("next");
+  $("#slider .myslide.show").removeClass("show");
+  $(`#slider .myslide${next}`).addClass("show");
 }
+
+function slideBack() {
+  console.log("back");
+  let back = $("#slider .myslide.show").attr("next");
+  $("#slider .myslide.show").removeClass("show");
+  $(`#slider .myslide${back}`).addClass("show");
+}
+
+function slideShow(n) {
+  console.log("object");
+  $("#slider .myslide.show").removeClass("show");
+  $(`#slider .myslide${n}`).addClass("show");
+}
+
+// function dot(n) {
+//   $("#slideer .showing").removeClass("showing");
+//   $(`#slider .dot`).each(function () {
+//     const target = $(this).attr("target");
+//     if (target == n) {
+//       $(this).addClass("showing");
+//     }
+//   });
+// }
+
+$("#slider .dot").click(function (e) {
+  e.preventDefault();
+  const target = $(this).attr("target");
+  $("#slider .myslide.show").removeClass("show");
+  $(`#slider .myslide${target}`).addClass("show");
+});

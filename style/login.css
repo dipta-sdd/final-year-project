@@ -1,19 +1,24 @@
 
-
+.login-box-container{
+  display: grid;
+}
 .link{
   text-decoration: none;
 }
 .login-box {
-  position: absolute;
-  top: calc(50px + 50%);
-  left: 50%;
+  /* position: absolute; */
+  /* top: calc(50px + 50%); */
+  /* left: 50%; */
   width: 400px;
   padding: 40px;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   background: rgba(0, 0, 0, .7);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
   border-radius: 10px;
+  margin: 50px auto;
+  justify-self: center;
+  align-self: center;
 }
 
 .login-box h2 {
@@ -196,7 +201,8 @@
 
 /* Reg   */
 .radio-button-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   align-items: center;
   gap: 24px;
   margin-bottom: 10px;
@@ -254,4 +260,11 @@
   transform: scale(1.2);
   border-color: #4c8bf5;
   box-shadow: 0 0 20px #4c8bf580;
+}
+
+.eye{
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  cursor: pointer;
 }
